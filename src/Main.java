@@ -23,7 +23,7 @@ class Main{
 
         // read from file
         File toRead=new File("inventory.txt");
-        FileInputStream fis=new FileInputStream(toRead);
+        FileInputStream fis=new FileInputStream(toRead); // create file input stream to read from a File object
         Scanner sc=new Scanner(fis);
         HashMap<Integer, List<String>> inventory = new HashMap<>();
 
@@ -92,9 +92,10 @@ class Main{
                     break;
                 case 7:
                     // Save to file
+                    // stream is wrapped inside out and it is directed towards the text file
                     PrintWriter out = new PrintWriter("inventory.txt");
                     inventory.forEach((key, value)->{
-                        out.println(key+","+value.get(0)+","+value.get(1));
+                        out.println(key+","+value.get(0)+","+value.get(1)); // println introduces line break after print contents
                     });
                     out.close();
                     break;
